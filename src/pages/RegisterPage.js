@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 // import { authOperations } from '../redux/auth';
-import { authOperations } from "../redux/auth/auth-operations";
+import authOperations from "../redux/auth/auth-operations";
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleCange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     switch (name) {
       case "name":
@@ -25,7 +25,7 @@ const RegisterPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch
+    dispatch(authOperations.register({ name, email, password }));
     setName("");
     setEmail("");
     setPassword("");
@@ -37,7 +37,12 @@ const RegisterPage = () => {
       <form onSubmit={handleSubmit} autoComplete="off">
         <label>
           Name
-          <input type="text " name="name" value="name" onCange={handleCange} />
+          <input
+            type="text "
+            name="name"
+            value={name}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Email
@@ -45,12 +50,17 @@ const RegisterPage = () => {
             type="email"
             name="email"
             value={email}
-            onCange={handleCange}
+            onChange={handleChange}
           />
         </label>
         <label>
           Password
-          <input type="" name="" value="" onCange={handleCange} />
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handleChange}
+          />
         </label>
         <button type="submit">Register</button>
       </form>

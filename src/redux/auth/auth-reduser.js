@@ -12,7 +12,9 @@ const initialState = {
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  extraReducers: {},
+  extraReducers: {
+    [authOperations.register.fulfiled](state, action) {},
+  },
 });
 
 export default authSlice.reducer;

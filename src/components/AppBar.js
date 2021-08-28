@@ -1,7 +1,15 @@
 import Navigation from "./Navigation";
+// import UserMenu from './'
+import AuthNav from "./AuthNav";
 
 const AppBar = () => {
-  return <Navigation />;
+  return (
+    <>
+      <Navigation />
+      {/* <UserMenu /> */}
+      <AuthNav />
+    </>
+  );
   // {
   //   isLoggedIn ? <UserMenu /> : <AuthNav />;
   // }

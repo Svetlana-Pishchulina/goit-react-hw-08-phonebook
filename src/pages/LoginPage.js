@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 // import { authOperations } from '../redux/auth';
-import { authOperations } from "../redux/auth/auth-operations";
+import authOperations from "../redux/auth/auth-operations";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleCange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     switch (name) {
       case "email":
@@ -22,7 +22,7 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch
+    dispatch(authOperations.register({ email, password }));
     setEmail("");
     setPassword("");
   };
@@ -37,12 +37,17 @@ const LoginPage = () => {
             type="email"
             name="email"
             value={email}
-            onCange={handleCange}
+            onChange={handleChange}
           />
         </label>
         <label>
           Password
-          <input type="" name="" value="" onCange={handleCange} />
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handleChange}
+          />
         </label>
         <button type="submit">Login</button>
       </form>

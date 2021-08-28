@@ -11,3 +11,5 @@ const register = createAsyncThunk("auth/register", async (credentials) => {
     return error;
   }
 });
+
+export default { register };
