@@ -1,7 +1,7 @@
 // import shortid from "shortid";
 
 import contactsActions from "./contacts-actions";
-import api from "../services/contacts-api";
+import api from "services/contacts-api";
 
 const fetchContacts = () => async (dispatch) => {
   dispatch(contactsActions.fetchContactsRequest());
