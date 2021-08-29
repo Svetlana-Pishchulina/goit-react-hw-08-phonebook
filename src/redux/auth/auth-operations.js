@@ -2,7 +2,6 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 axios.defaults.baseURL = "https://connections-api.herokuapp.com";
-// axios.defaults.baseURL = "https://lpj-tasker.herokuapp.com";
 
 const token = {
   set(token) {
@@ -42,35 +41,23 @@ const logOut = createAsyncThunk("auth/logout", async () => {
     return error.message;
   }
 });
-export default { register, logIn, logOut };
 
-//__________________________________________________repeta
-// import axios from "axios";
-// import { createAsyncThunk } from "@reduxjs/toolkit";
+const fetchCurrentUser = createAsyncThunk(
+  "auth/refresh",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue();
+    }
 
-// axios.defaults.baseURL = "https://connections-api.herokuapp.com";
-
-// // const token = {
-// //   set(token) {
-// //     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-// //   },
-// //   unset() {
-// //     axios.defaults.headers.common.Authorization = "";
-// //   },
-// // };
-
-// /*
-//  * POST @ /users/signup
-//  * body: { name, email, password }
-//  * После успешной регистрации добавляем токен в HTTP-заголовок
-//  */
-// const register = createAsyncThunk("auth/register", async (credentials) => {
-//   try {
-//     const { data } = await axios.post("/users/signup", credentials);
-//     // token.set(data.token);
-//     return data;
-//   } catch (error) {
-//     // TODO: Добавить обработку ошибки error.message
-//   }
-// });
-// export default { register };
+    token.set(persistedToken);
+    try {
+      const { data } = await axios.get("/users/current");
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue();
+    }
+  }
+);
+export default { register, logIn, logOut, fetchCurrentUser };
