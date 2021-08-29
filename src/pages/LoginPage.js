@@ -22,7 +22,7 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(authOperations.register({ email, password }));
+    dispatch(authOperations.logIn({ email, password }));
     setEmail("");
     setPassword("");
   };
