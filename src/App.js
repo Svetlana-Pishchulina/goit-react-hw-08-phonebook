@@ -4,8 +4,8 @@ import { Switch, Route } from "react-router-dom";
 
 import AppBar from "./components/AppBar";
 import HomePage from "./pages/HomePage";
-import RegisterPage from "./pages/RegisterPage";
-import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPageMatUI";
+import LoginPage from "./pages/LoginPageMatUI";
 import ContactsPage from "./pages/ContactsPage";
 import authOperations from "./redux/auth/auth-operations";
 
