@@ -8,6 +8,8 @@ import RegisterPage from "./pages/RegisterPageMatUI";
 import LoginPage from "./pages/LoginPageMatUI";
 import ContactsPage from "./pages/ContactsPage";
 import authOperations from "./redux/auth/auth-operations";
+// import { StylesProvider } from "@material-ui/core";
+// import styles from "./App.module.css";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,7 +19,9 @@ function App() {
 
   return (
     <>
+      {/* <div> */}
       <AppBar />
+      {/* </div> */}
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/register" component={RegisterPage}></Route>

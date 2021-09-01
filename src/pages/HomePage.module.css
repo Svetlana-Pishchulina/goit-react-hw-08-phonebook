@@ -1,0 +1,23 @@
+.HomePageContainer {
+  padding-top: 20px;
+  text-align: center;
+}
+.heder {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 35px;
+  font-weight: 500;
+  color: palevioletred;
+  text-shadow: 1px 1px 2px black, 0 0 0.2em rgb(128, 21, 30);
+}
+
+.icon {
+  /* width: 100px; */
+  font-size: 40px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 20px;
+  color: darkblue;
+}
