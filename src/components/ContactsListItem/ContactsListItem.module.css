@@ -1,5 +1,6 @@
 .listItem {
   margin-bottom: 10px;
+  /* width: 400px; */
 }
 
 .button {
@@ -8,4 +9,16 @@
 
 .button:hover {
   background-color: cornflowerblue;
+}
+
+.name {
+  margin-right: 20px;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+span .number {
+  margin-left: auto;
+  justify-content: flex-end;
+  text-align: right;
 }

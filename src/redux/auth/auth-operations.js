@@ -23,15 +23,16 @@ const register = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      // pnotify.error({
-      //   text: "something gone wrong",
-      //   mode: "light",
-      //   closer: true,
-      //   sticker: false,
-      //   hide: true,
-      //   delay: 2000,
-      // });
+      pnotify.error({
+        text: "something gone wrong",
+        mode: "light",
+        closer: true,
+        sticker: false,
+        hide: true,
+        delay: 2000,
+      });
       alert("something gone wrong");
+
       return thunkAPI.rejectWithValue();
       // console.log(error.response.status);
       // return error.message;
@@ -46,7 +47,15 @@ const logIn = createAsyncThunk("auth/login", async (credentials, thunkAPI) => {
     return data;
   } catch (error) {
     console.log(error.response.status);
-    alert("something gone wrong");
+    // alert("something gone wrong");
+    pnotify.error({
+      text: "something gone wrong",
+      mode: "light",
+      closer: true,
+      sticker: false,
+      hide: true,
+      delay: 2000,
+    });
     return thunkAPI.rejectWithValue();
   }
 });

@@ -5,6 +5,8 @@ import styles from "./Form.module.css";
 import { getItems } from "redux/contacts/contacts-selection";
 import contactsOperations from "redux/contacts/contactsOperations";
 
+import Button from "@material-ui/core/Button";
+
 const useForm = (key) => {
   const [state, setState] = useState("");
 
@@ -62,6 +64,7 @@ const Form = () => {
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
             required
+            placeholder="Enter name"
             onChange={handleChange}
           />
         </label>
@@ -75,10 +78,13 @@ const Form = () => {
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
             required
+            placeholder="Enter number"
             onChange={handleChange}
           />
         </label>
-        <button type="submit">Add contact</button>
+        <Button type="submit" variant="contained" color="primary">
+          Add contact
+        </Button>
       </form>
     </>
   );

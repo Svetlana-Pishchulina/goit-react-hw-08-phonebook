@@ -2,5 +2,7 @@
   font-size: 36px;
 }
 .section {
-  margin-left: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
